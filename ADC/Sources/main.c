@@ -26,7 +26,7 @@ int main(void)
 {
 	//INITIALIZATIONS
 	
-	MCG_init;
+	InitClock();
 	SysTick_init();
 	
 	GPIO_init();
@@ -58,7 +58,7 @@ int main(void)
 		a=ADC_Read(14);
 		b=ADC_Read(11);
 		delay_ms(100);
-		printt(sprintf("a: %d ; b: %d \n\r",a,b));
+		printt("testowanko/n/r");
 	   
 	}				//end of endless loop
 	return 0;

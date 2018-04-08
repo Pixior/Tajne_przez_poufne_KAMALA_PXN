@@ -58,6 +58,7 @@ unsigned char fll_rtc_init(unsigned char, unsigned char);
 
 
 // prototypes
+void InitClock (void);
 void rtc_as_refclk(void);
 int fee_fei(int slow_irc_freq);
 int fei_fbe(int crystal_val, unsigned char hgo_val, unsigned char erefs_val);
