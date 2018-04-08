@@ -5,7 +5,7 @@
 
 
 #include "derivative.h" /* include peripheral declarations */
-#include "mcg.h"
+#include "clock.h"
 #include "systick.h"
 #include "adc.h"
 #include "gpio.h"
@@ -55,11 +55,15 @@ int main(void)
 	
 	for(;;) 		//endless loop
 	{	
+
 		a=ADC_Read(14);
 		b=ADC_Read(11);
-		delay_ms(100);
-		printt("testowanko/n/r");
-	   
+		delay_ms(200);
+		
+		//UART
+		char temp[20];
+		sprintf(temp,"a: %d ; b: %d \n\r",a,b);
+	    printt(temp);
 	}				//end of endless loop
 	return 0;
 }				//end of main loop

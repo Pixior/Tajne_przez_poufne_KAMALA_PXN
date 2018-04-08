@@ -8,6 +8,7 @@
 C_SRCS_QUOTED += \
 "../Sources/TFC_functions.c" \
 "../Sources/adc.c" \
+"../Sources/clock.c" \
 "../Sources/gpio.c" \
 "../Sources/main.c" \
 "../Sources/mcg.c" \
@@ -18,6 +19,7 @@ C_SRCS_QUOTED += \
 C_SRCS += \
 ../Sources/TFC_functions.c \
 ../Sources/adc.c \
+../Sources/clock.c \
 ../Sources/gpio.c \
 ../Sources/main.c \
 ../Sources/mcg.c \
@@ -28,6 +30,7 @@ C_SRCS += \
 OBJS += \
 ./Sources/TFC_functions.o \
 ./Sources/adc.o \
+./Sources/clock.o \
 ./Sources/gpio.o \
 ./Sources/main.o \
 ./Sources/mcg.o \
@@ -38,6 +41,7 @@ OBJS += \
 C_DEPS += \
 ./Sources/TFC_functions.d \
 ./Sources/adc.d \
+./Sources/clock.d \
 ./Sources/gpio.d \
 ./Sources/main.d \
 ./Sources/mcg.d \
@@ -48,6 +52,7 @@ C_DEPS += \
 OBJS_QUOTED += \
 "./Sources/TFC_functions.o" \
 "./Sources/adc.o" \
+"./Sources/clock.o" \
 "./Sources/gpio.o" \
 "./Sources/main.o" \
 "./Sources/mcg.o" \
@@ -58,6 +63,7 @@ OBJS_QUOTED += \
 C_DEPS_QUOTED += \
 "./Sources/TFC_functions.d" \
 "./Sources/adc.d" \
+"./Sources/clock.d" \
 "./Sources/gpio.d" \
 "./Sources/main.d" \
 "./Sources/mcg.d" \
@@ -68,6 +74,7 @@ C_DEPS_QUOTED += \
 OBJS_OS_FORMAT += \
 ./Sources/TFC_functions.o \
 ./Sources/adc.o \
+./Sources/clock.o \
 ./Sources/gpio.o \
 ./Sources/main.o \
 ./Sources/mcg.o \
@@ -93,9 +100,17 @@ Sources/adc.o: ../Sources/adc.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
-Sources/gpio.o: ../Sources/gpio.c
+Sources/clock.o: ../Sources/clock.c
 	@echo 'Building file: $<'
 	@echo 'Executing target #3 $<'
+	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
+	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/clock.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/clock.o"
+	@echo 'Finished building: $<'
+	@echo ' '
+
+Sources/gpio.o: ../Sources/gpio.c
+	@echo 'Building file: $<'
+	@echo 'Executing target #4 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/gpio.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/gpio.o"
 	@echo 'Finished building: $<'
@@ -103,7 +118,7 @@ Sources/gpio.o: ../Sources/gpio.c
 
 Sources/main.o: ../Sources/main.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #4 $<'
+	@echo 'Executing target #5 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/main.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/main.o"
 	@echo 'Finished building: $<'
@@ -111,7 +126,7 @@ Sources/main.o: ../Sources/main.c
 
 Sources/mcg.o: ../Sources/mcg.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #5 $<'
+	@echo 'Executing target #6 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/mcg.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/mcg.o"
 	@echo 'Finished building: $<'
@@ -119,7 +134,7 @@ Sources/mcg.o: ../Sources/mcg.c
 
 Sources/sa_mtb.o: ../Sources/sa_mtb.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #6 $<'
+	@echo 'Executing target #7 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/sa_mtb.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/sa_mtb.o"
 	@echo 'Finished building: $<'
@@ -127,7 +142,7 @@ Sources/sa_mtb.o: ../Sources/sa_mtb.c
 
 Sources/systick.o: ../Sources/systick.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #7 $<'
+	@echo 'Executing target #8 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/systick.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/systick.o"
 	@echo 'Finished building: $<'
@@ -135,7 +150,7 @@ Sources/systick.o: ../Sources/systick.c
 
 Sources/uart.o: ../Sources/uart.c
 	@echo 'Building file: $<'
-	@echo 'Executing target #8 $<'
+	@echo 'Executing target #9 $<'
 	@echo 'Invoking: ARM Ltd Windows GCC C Compiler'
 	"$(ARMSourceryDirEnv)/arm-none-eabi-gcc" "$<" @"Sources/uart.args" -MMD -MP -MF"$(@:%.o=%.d)" -o"Sources/uart.o"
 	@echo 'Finished building: $<'

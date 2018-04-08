@@ -1,6 +1,6 @@
 #include "derivative.h"
 #include "uart.h"
-#include "gpio.h"
+
 
 /**************************
  * Defines
