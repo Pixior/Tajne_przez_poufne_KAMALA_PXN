@@ -11,6 +11,7 @@
 #include "gpio.h"
 #include "uart.h"
 #include "TFC_functions.h"
+#include "stdio.h"
 
 //DEFINITIONS
 
@@ -57,7 +58,7 @@ int main(void)
 		a=ADC_Read(14);
 		b=ADC_Read(11);
 		delay_ms(100);
-		printt("a: %d ; b: %d \n\r",a,b);
+		printt(sprintf("a: %d ; b: %d \n\r",a,b));
 	   
 	}				//end of endless loop
 	return 0;
