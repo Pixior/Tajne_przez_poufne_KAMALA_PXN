@@ -1,0 +1,41 @@
+/*
+ * gpio.h
+ *
+ *  Created on: Apr 7, 2018
+ *      Author: Pixior
+ */
+
+#ifndef GPIO_H_
+#define GPIO_H_
+
+//basic LEDs
+
+#define RED_LED_LOC		(1<<18)
+#define GREEN_LED_LOC		(1<<19)
+#define BLUE_LED_LOC		(1<<1)
+
+#define RED_LED_TOGGLE 		GPIOB_PTOR=RED_LED_LOC;
+#define RED_LED_ON 			GPIOB_PCOR=RED_LED_LOC;
+#define RED_LED_OFF 		GPIOB_PSOR=RED_LED_LOC;
+
+#define GREEN_LED_TOGGLE 	GPIOB_PTOR=GREEN_LED_LOC;
+#define GREEN_LED_ON 		GPIOB_PCOR=GREEN_LED_LOC;
+#define GREEN_LED_OFF 		GPIOB_PSOR=GREEN_LED_LOC;
+
+#define BLUE_LED_TOGGLE 	GPIOD_PTOR=BLUE_LED_LOC;
+#define BLUE_LED_ON 		GPIOD_PCOR=BLUE_LED_LOC;
+#define BLUE_LED_OFF 		GPIOD_PSOR=BLUE_LED_LOC;
+
+#define ALL_LED_OFF		RED_LED_OFF;   BLUE_LED_OFF;   GREEN_LED_OFF;
+
+//FABULOUS COLOURS!
+
+#define PINK3		RED_LED_ON;   BLUE_LED_ON;   GREEN_LED_OFF;
+#define CYAN		RED_LED_OFF;  BLUE_LED_ON;   GREEN_LED_ON;
+#define YELLOW		RED_LED_ON;   BLUE_LED_OFF;  GREEN_LED_ON;
+#define WHITE		RED_LED_ON;   BLUE_LED_ON;   GREEN_LED_ON;
+
+//prototypes
+void GPIO_init();
+
+#endif /* GPIO_H_ */
