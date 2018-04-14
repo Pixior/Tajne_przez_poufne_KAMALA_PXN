@@ -9,6 +9,7 @@
 "./Sources/gpio.o"
 "./Sources/clock.o"
 "./Sources/adc.o"
+"./Sources/TPM.o"
 "./Sources/TFC_functions.o"
 -mcpu=cortex-m0
 -mthumb

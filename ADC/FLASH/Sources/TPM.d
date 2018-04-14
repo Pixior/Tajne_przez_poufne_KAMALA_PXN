@@ -1,4 +1,4 @@
-Sources/gpio.o: ../Sources/gpio.c \
+Sources/TPM.o: ../Sources/TPM.c \
  C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix \
  C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/common.prefix \
  C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_c_version.h \
@@ -12,7 +12,7 @@ Sources/gpio.o: ../Sources/gpio.c \
  C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/cstdint \
  C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h \
  C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h \
- C:/Users/Pixior/Desktop/Zawody\ NXP/Github_repozytoria/Tajne_przez_poufne_KAMALA_PXN/ADC/Project_Headers/gpio.h
+ C:/Users/Pixior/Desktop/Zawody\ NXP/Github_repozytoria/Tajne_przez_poufne_KAMALA_PXN/ADC/Project_Headers/TPM.h
 
 C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/lib_ewl.prefix:
 
@@ -40,4 +40,4 @@ C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/limits_api.h:
 
 C:/Freescale/CW\ MCU\ v11.0/MCU/ARM_GCC_Support/ewl/EWL_C/include/ewl_lib_ext1.h:
 
-C:/Users/Pixior/Desktop/Zawody\ NXP/Github_repozytoria/Tajne_przez_poufne_KAMALA_PXN/ADC/Project_Headers/gpio.h:
+C:/Users/Pixior/Desktop/Zawody\ NXP/Github_repozytoria/Tajne_przez_poufne_KAMALA_PXN/ADC/Project_Headers/TPM.h:

@@ -10,5 +10,6 @@
 
 #define CORE_CLOCK		48000000
 void InitClock (void);
+void InitClock2 (void);
 
 #endif /* CLOCK_H_ */

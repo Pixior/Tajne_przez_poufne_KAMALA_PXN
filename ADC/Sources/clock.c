@@ -8,7 +8,29 @@
 #include "derivative.h"
 #include "clock.h"
 
-void InitClock (void) {
+void InitClock (void){
+	int i, temp_reg;
+	// configure clock to 48 MHz from a 8 MHz crystal
+	MCG_C2 = (MCG_C2_RANGE0(1) | MCG_C2_EREFS0_MASK); 	// configure the oscillator settings
+	MCG_C1 = (MCG_C1_CLKS(2) | MCG_C1_FRDIV(3));		// divider for 8 MHz clock	
+	for (i = 0 ; i < 24000 ; i++)						// wait for OSCINIT to set
+	// now in FBE mode
+	MCG_C6 |= MCG_C6_CME0_MASK;		// enable the clock monitor
+	MCG_C5 |= MCG_C5_PRDIV0(1); 	// set PLL ref divider to divide by 2
+	temp_reg = MCG_C6; 				// store present C6 value (as CME0 bit was previously set)
+	temp_reg &= ~MCG_C6_VDIV0_MASK; // clear VDIV settings
+	temp_reg |= MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0); 	// write new VDIV and enable PLL
+	MCG_C6 = temp_reg; 				// update MCG_C6		
+	for (i = 0 ; i < 4000 ; i++) 	// wait for PLLST status bit to set
+	// now in PBE mode
+	SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(1) | SIM_CLKDIV1_OUTDIV4(1));	// core clock, bus clock div by 2	
+	MCG_C1 &= ~MCG_C1_CLKS_MASK;	// switch CLKS mux to select the PLL as MCGCLKOUT	
+	for (i = 0 ; i < 2000 ; i++)	// Wait for clock status bits to update
+	// now in PEE mode, core and system clock 48 MHz, bus and flash clock 24 MHz
+	SIM_SCGC5 = SIM_SCGC5_PORTA_MASK | SIM_SCGC5_PORTB_MASK | SIM_SCGC5_PORTC_MASK | SIM_SCGC5_PORTD_MASK | SIM_SCGC5_PORTE_MASK;
+}
+
+void InitClock2 (void) {
 
 /***********************************************************************
  * 1) Transition from FEI to FBE mode.
