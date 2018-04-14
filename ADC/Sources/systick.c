@@ -7,7 +7,7 @@
 
 #include "derivative.h" /* include peripheral declarations */
 #include "systick.h" 
-#include "clock.h"
+#include "mcg.h"
 
 static volatile unsigned int DelayTimer;
 

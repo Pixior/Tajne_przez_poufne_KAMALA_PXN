@@ -18,7 +18,16 @@
 #define KP						50			// Proportional coefficient
 #define KDP						25			// Differential coefficient
 
+//Process definitions
+#define CameraInterval 10						//Interval time in multiple of 100ns between camera readings
+#define UartInterval 2000							//Interval time in multiple of 100ns between uart transmitions
+
 //VARIABLES
+//Core process variables
+int CameraTicker=0;
+int UartTicker=0;
+
+//General
 int a=0, b=0;
 
 
@@ -56,15 +65,27 @@ int main(void)
 	
 	for(;;) 		//endless loop
 	{	
-
-		a=ADC_Read(14);
-		b=ADC_Read(11);
-		delay_ms(200);
+		//PROCESS 1
+		if(CameraTicker>=CameraInterval)
+		{
+			CameraTicker=0;	
 		
-		//UART
-		char temp[20];
-		sprintf(temp,"a: %d ; b: %d \n\r",a,b);
-	    printt(temp);
+		
+		}
+		
+		//PROCESS 2
+		if(UartTicker>=UartInterval)
+		{
+			UartTicker=0;	
+			
+			a=ADC_Read(14);
+			b=ADC_Read(11);
+		
+			//UART
+			char temp[20];
+			sprintf(temp,"a: %d ; b: %d \n\r",a,b);
+			printt(temp);
+		}
 	}				//end of endless loop
 	return 0;
 }				//end of main loop
@@ -72,10 +93,12 @@ int main(void)
 void FTM0_IRQHandler()				// TPM0 ISR executing every 100ns
 {
 	TPM0_SC |= 0x80;							// clear TPM0 ISR flag
-	//BLUE_LED_ON;
-	BLUE_LED_TOGGLE;
+	BLUE_LED_ON;
 	
-	//BLUE_LED_OFF;
+	if(CameraTicker<0xFFFFFFFF) CameraTicker++;
+	if(UartTicker<0xFFFFFFFF) UartTicker++;
+	
+	BLUE_LED_OFF;
 }
 
 void FTM1_IRQHandler()				// TPM1 ISR executing every 10 ms

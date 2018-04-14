@@ -7,7 +7,6 @@
 "./Sources/mcg.o"
 "./Sources/main.o"
 "./Sources/gpio.o"
-"./Sources/clock.o"
 "./Sources/adc.o"
 "./Sources/TPM.o"
 "./Sources/TFC_functions.o"

@@ -24,11 +24,11 @@ void TPM_init()
 	TPM1_CONF = 0;
 		
 	// set TPM prescaler before enabling the timer
-	TPM0_SC |= 7;					// prescaler for TPM0 (Motor) is 8 was 3
-	TPM1_SC |= 7;					// prescaler for TPM1 (Servo) is 8 was 3
+	TPM0_SC |= 3;					// prescaler for TPM0 (Motor) is 8
+	TPM1_SC |= 3;					// prescaler for TPM1 (Servo) is 8
 	
 	// TPM modulo register, set frequency
-	TPM0_MOD = 50000;		//was 600			// modulo TPM0 (Motor), periode = 0.10 ms (10000 Hz)
+	TPM0_MOD = 600;					// modulo TPM0 (Motor), periode = 0.10 ms (10000 Hz)
 	TPM1_MOD = 60000;				// modulo TPM1 (Servo), periode = 10 ms (100 Hz)
 		
 	// set TPM clock mode to enable timer
